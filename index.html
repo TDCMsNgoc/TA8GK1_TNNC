@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đề Thi Trắc Nghiệm Tiếng Anh 8 - Giữa Kỳ 1 (Nâng Cao)</title>
+  <meta name="description" content="Đề kiểm tra trắc nghiệm Tiếng Anh 8 Giữa học kỳ 1 (Nâng cao) - 40 câu hỏi, thời gian 20 phút, đáp án và giải thích chi tiết chuẩn sau khi nộp bài.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📝</text></svg>">
+</head>
+<body>
+
+  <!-- Top Sticky Header -->
+  <header class="site-header">
+    <div class="header-container">
+      <div class="brand-info">
+        <span class="brand-badge">TA8-GK1</span>
+        <div>
+          <h1 class="brand-title">Đề Trắc Nghiệm Tiếng Anh 8 - Giữa Kỳ 1</h1>
+          <p class="brand-subtitle">Chương trình Nâng cao • 40 Câu hỏi • 20 Phút</p>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <!-- Countdown Timer -->
+        <div class="timer-pill" id="timerPill" title="Thời gian còn lại">
+          <svg class="timer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+          <span id="timerText">20:00</span>
+        </div>
+
+        <!-- Submit Button in Header -->
+        <button type="button" class="btn btn-primary" id="btnSubmitTop">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span id="submitBtnText">Nộp bài</span>
+        </button>
+      </div>
+    </div>
+    <!-- Progress Bar Strip -->
+    <div class="progress-strip-wrap">
+      <div class="progress-strip" id="progressStrip"></div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="main-wrapper">
+
+    <!-- Hero / Intro Banner -->
+    <section class="exam-banner">
+      <span class="banner-tag">Kiểm Tra Giữa Học Kỳ 1 • Môn Tiếng Anh 8</span>
+      <h1>ĐỀ ÔN TẬP VÀ THI THỬ TRẮC NGHIỆM NÂNG CAO</h1>
+      <p>Bao gồm 4 phần: Phát âm (Pronunciation), Thời gian & Nơi chốn (Time / Place), Dạng từ (Word form), và Cấu trúc ngữ pháp trọng điểm (Structures).</p>
+      <div class="exam-meta-pills">
+        <span>⏱️ Thời gian: <strong>20 phút</strong></span>
+        <span>📋 Số lượng: <strong>40 câu hỏi</strong></span>
+        <span>🔒 Không gợi ý trong khi làm bài</span>
+        <span>💡 Xem đáp án & giải thích chi tiết sau khi nộp</span>
+      </div>
+    </section>
+
+    <!-- Student Info Bar -->
+    <section class="student-info-card" id="studentInfoCard">
+      <div class="info-input-group">
+        <label for="studentName">Họ và tên thí sinh:</label>
+        <input type="text" id="studentName" placeholder="Nhập họ và tên..." autocomplete="name">
+      </div>
+      <div class="info-input-group">
+        <label for="studentClass">Lớp / Trường:</label>
+        <input type="text" id="studentClass" placeholder="Ví dụ: Lớp 8A1 - THCS Chu Văn An">
+      </div>
+    </section>
+
+    <!-- Results Dashboard (Post-submission only) -->
+    <section class="results-hero-card" id="resultsCard">
+      <div class="results-grid-top">
+        <div class="score-dial-wrap">
+          <span class="score-number" id="finalScore10">0.0</span>
+          <span class="score-scale">Thang điểm 10</span>
+          <div class="score-verdict" id="scoreVerdict">Chờ chấm điểm</div>
+        </div>
+        <div class="results-details">
+          <h2>Kết Quả Làm Bài Của Bạn</h2>
+          <p id="studentGreetingResult">Chúc mừng bạn đã hoàn thành bài thi!</p>
+          <div class="results-summary-stats">
+            <div class="stat-box">
+              <div class="stat-label">Số câu đúng</div>
+              <div class="stat-value" id="statCorrectCount">0 / 40</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-label">Tỷ lệ chính xác</div>
+              <div class="stat-value" id="statAccuracy">0%</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-label">Thời gian hoàn thành</div>
+              <div class="stat-value" id="statTimeSpent">--:--</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Performance Breakdowns -->
+      <div class="breakdown-row">
+        <!-- By Section -->
+        <div class="breakdown-card">
+          <h4>Phân tích theo Chuyên đề</h4>
+          <div id="sectionBreakdownList">
+            <!-- Dynamic items -->
+          </div>
+        </div>
+        <!-- By Difficulty -->
+        <div class="breakdown-card">
+          <h4>Phân tích theo Cấp độ nhận thức</h4>
+          <div id="levelBreakdownList">
+            <!-- Dynamic items -->
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 1.5rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
+        <button type="button" class="btn btn-outline" id="btnPrintResults">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 6 2 18 2 18 9"></polyline>
+            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+            <rect x="6" y="14" width="12" height="8"></rect>
+          </svg>
+          In kết quả / Lưu PDF
+        </button>
+        <button type="button" class="btn btn-primary" id="btnRetake">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="1 4 1 10 7 10"></polyline>
+            <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+          </svg>
+          Làm lại bài thi
+        </button>
+      </div>
+    </section>
+
+    <!-- Filter Bar (Visible only after submission) -->
+    <div class="review-filter-bar" id="reviewFilterBar" style="display: none;">
+      <span style="font-weight: 700; font-size: 0.85rem; color: #475569; margin-right: 0.5rem;">Bộ lọc câu hỏi:</span>
+      <button type="button" class="filter-btn active" data-filter="all">Tất cả (40)</button>
+      <button type="button" class="filter-btn" data-filter="correct">Câu đúng (<span id="filterCountCorrect">0</span>)</button>
+      <button type="button" class="filter-btn" data-filter="wrong">Câu sai (<span id="filterCountWrong">0</span>)</button>
+      <button type="button" class="filter-btn" data-filter="unanswered">Chưa làm (<span id="filterCountUnanswered">0</span>)</button>
+    </div>
+
+    <!-- Back to top floating button -->
+    <button type="button" id="btnBackToTop" class="back-to-top-btn" title="Lên đầu trang" aria-label="Lên đầu trang">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <polyline points="18 15 12 9 6 15"></polyline>
+      </svg>
+    </button>
+
+    <!-- Main Two-Column Layout -->
+    <div class="layout-grid">
+
+      <!-- Questions List Column -->
+      <div class="questions-column" id="questionsContainer">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+
+      <!-- Right Column: Sticky Question Navigator -->
+      <aside class="sidebar-column">
+        <div class="sidebar-sticky-panel" id="sidebarPanel">
+          <div class="nav-header">
+            <h3>Bảng câu hỏi</h3>
+            <span class="nav-counter" id="navCounterText">0/40 đã chọn</span>
+          </div>
+
+          <div class="nav-matrix-grid" id="questionMatrix">
+            <!-- 40 buttons dynamically generated -->
+          </div>
+
+          <div class="nav-legend" id="navLegend">
+            <div class="legend-item">
+              <span class="legend-dot dot-unanswered"></span> Chưa làm
+            </div>
+            <div class="legend-item">
+              <span class="legend-dot dot-answered"></span> Đã chọn
+            </div>
+            <div class="legend-item">
+              <span class="legend-dot dot-flagged"></span> Đánh dấu
+            </div>
+          </div>
+
+          <div class="sidebar-actions">
+            <button type="button" class="btn btn-primary btn-block" id="btnSubmitSidebar">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              Nộp bài thi
+            </button>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+  <!-- Mobile Floating Sticky Bar -->
+  <div class="mobile-sticky-bar" id="mobileStickyBar">
+    <div>
+      <span style="font-weight: 700; font-size: 0.95rem; color: #1e293b;" id="mobileCounterText">0/40 câu</span>
+      <span style="font-size: 0.8rem; color: #64748b; margin-left: 0.35rem;" id="mobileTimerText">20:00</span>
+    </div>
+    <div style="display: flex; gap: 0.5rem;">
+      <button type="button" class="btn btn-secondary" id="btnToggleMobilePalette">
+        Bảng câu
+      </button>
+      <button type="button" class="btn btn-primary" id="btnSubmitMobile">
+        Nộp bài
+      </button>
+    </div>
+  </div>
+
+  <!-- Submit Confirmation Modal -->
+  <div class="modal-backdrop" id="modalConfirmSubmit">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-icon" id="confirmModalIcon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+          </svg>
+        </div>
+        <div>
+          <h3 class="modal-title">Xác nhận nộp bài</h3>
+          <p style="font-size: 0.82rem; color: #64748b;">Thời gian còn lại: <strong id="modalRemainingTime">--:--</strong></p>
+        </div>
+      </div>
+      <div class="modal-body" id="modalConfirmBody">
+        Bạn đã hoàn thành 0/40 câu. Bạn có chắc chắn muốn nộp bài ngay bây giờ không?
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-outline" id="btnCancelSubmit">Tiếp tục làm bài</button>
+        <button type="button" class="btn btn-primary" id="btnConfirmSubmit">Xác nhận nộp bài</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Time Out Modal -->
+  <div class="modal-backdrop" id="modalTimeOut">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+        </div>
+        <div>
+          <h3 class="modal-title">Hết giờ làm bài!</h3>
+          <p style="font-size: 0.82rem; color: #64748b;">Đã hết thời gian quy định (20 phút)</p>
+        </div>
+      </div>
+      <div class="modal-body">
+        Thời gian làm bài 20 phút đã kết thúc. Hệ thống đã tự động thu bài của bạn. Nhấn nút bên dưới để xem điểm số, đáp án đúng và phần giải thích chi tiết cho từng câu hỏi.
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-success" id="btnCloseTimeOutModal">Xem kết quả & Lời giải</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/questions.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
