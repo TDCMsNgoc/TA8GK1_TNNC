@@ -41,46 +41,42 @@
 
 ### Cách 2: Triển khai lên GitHub Pages (CHẠY ONLINE TRÊN GITHUB)
 
-Để đưa trang web lên GitHub và có link trực tuyến chia sẻ cho học sinh/sinh viên làm bài:
+> 💡 **ĐẶC BIỆT**: File `index.html` đã được **đóng gói trọn gói (All-in-one / Standalone)**. Toàn bộ CSS giao diện, dữ liệu 40 câu hỏi và JavaScript điều khiển đều đã được tích hợp sẵn bên trong `index.html`. Do đó, bạn chỉ cần tải đúng **1 file `index.html`** lên GitHub là ứng dụng chạy 100% hoàn hảo, không còn lo bị lỗi thiếu thư mục `css` hay `js`!
 
 #### Bước 1: Tạo Repository trên GitHub
 1. Đăng nhập vào [GitHub.com](https://github.com/).
 2. Nhấn nút **New Repository** (Tạo kho lưu trữ mới).
-3. Đặt tên Repo (Ví dụ: `tienganh8-gk1-tracnghiem`).
-4. Để chế độ **Public** và nhấn **Create repository**.
+3. Đặt tên Repo (Ví dụ: `tienganh8-gk1`).
+4. **LƯU Ý QUAN TRỌNG**: Chọn chế độ **Public** (Tài khoản GitHub miễn phí chỉ cho phép chạy GitHub Pages khi repo ở chế độ Public).
+5. Nhấn **Create repository**.
 
-#### Bước 2: Tải code lên GitHub
-- **Cách qua giao diện web GitHub (Đơn giản nhất)**:
-  1. Trong trang repo vừa tạo, nhấn vào **Upload files**.
-  2. Kéo thả toàn bộ các file và thư mục trong dự án vào:
-     - `index.html`
-     - Thư mục `css/` (chứa `style.css`)
-     - Thư mục `js/` (chứa `questions.js` và `app.js`)
-     - `README.md`
-  3. Nhấn **Commit changes**.
+#### Bước 2: Tải file lên GitHub
+- **Cách đơn giản nhất (Trực tiếp trên web GitHub)**:
+  1. Trong trang Repo vừa tạo, nhấn vào **Upload files** (hoặc **Add file** -> **Upload files**).
+  2. Kéo thả file `index.html` (và các file `.nojekyll`, `.github`, `README.md` nếu muốn) vào trang web.
+  3. **LƯU Ý**: Hãy kéo thả trực tiếp file `index.html` vào khung tải lên (để `index.html` nằm ngay tại thư mục gốc, **KHÔNG** kéo cả thư mục cha `TA8-GK1-TRAC NGHIEM NC`).
+  4. Nhấn **Commit changes**.
 
-- **Cách qua Git CLI (Nếu máy có cài Git)**:
-  ```bash
-  git init
-  git add .
-  git commit -m "Initial commit: TA8-GK1 Trac Nghiem NC"
-  git branch -M main
-  git remote add origin https://github.com/<tai-khoan-cua-ban>/<ten-repo>.git
-  git push -u origin main
-  ```
-
-#### Bước 3: Bật GitHub Pages
-1. Tại trang Repo trên GitHub, chọn tab **Settings** (Cài đặt).
-2. Ở thanh bên trái, chọn mục **Pages**.
+#### Bước 3: Kích hoạt GitHub Pages (Bắt buộc)
+1. Tại trang Repo trên GitHub, bấm vào tab **Settings** (ở thanh menu trên cùng).
+2. Ở thanh menu bên trái, tìm và bấm vào mục **Pages**.
 3. Tại phần **Build and deployment** -> **Source**: Chọn `Deploy from a branch`.
-4. Tại phần **Branch**: Chọn nhánh `main`, thư mục `/ (root)`, rồi nhấn **Save**.
-5. Đợi khoảng 1 - 2 phút, GitHub sẽ cung cấp cho bạn một đường link trực tuyến có dạng:
+4. Tại phần **Branch**: Chọn nhánh `main` (hoặc `master`), thư mục giữ nguyên `/ (root)`, rồi bấm nút **Save**.
+5. Đợi khoảng **1 đến 2 phút**, tải lại trang Settings -> Pages, bạn sẽ thấy thông báo màu xanh kèm link dạng:
    ```
-   https://<tai-khoan-cua-ban>.github.io/<ten-repo>/
+   https://<ten-tai-khoan-cua-ban>.github.io/<ten-repo>/
    ```
-6. Bạn có thể gửi đường link này cho học sinh để làm bài thi trực tuyến bất kỳ lúc nào trên điện thoại hay máy tính!
+6. Bấm vào link đó là bài thi sẽ hiển thị đầy đủ và chạy trực tuyến cho tất cả học sinh!
 
 ---
+
+### ⚠️ BẢNG HƯỚNG DẪN XỬ LÝ LỖI GITHUB THƯỜNG GẶP:
+
+| Hiện tượng lỗi | Nguyên nhân | Cách khắc phục |
+|:---|:---|:---|
+| **Lỗi 404 Not Found** (There isn't a GitHub Pages site here) | 1. Chưa vào **Settings > Pages** để chọn nhánh `main` và ấn `Save`.<br>2. Hoặc repo đang để chế độ **Private** (Riêng tư).<br>3. Hoặc bạn kéo cả thư mục `TA8-GK1-TRAC NGHIEM NC` vào GitHub nên file nằm ở `/TA8-GK1-TRAC%20NGHIEM%20NC/index.html`. | 1. Vào **Settings > Pages**, chọn Branch `main` -> `Save`.<br>2. Chuyển repo sang chế độ **Public**.<br>3. Đảm bảo file `index.html` nằm ngay ở trang chủ (Root) của Repository. |
+| **Trang web trắng tinh hoặc mất giao diện** | Khi tải lên web GitHub, các thư mục con `css/` hoặc `js/` bị thiếu khiến trình duyệt không tải được file. | File [**`index.html`**](file:///d:/websiteabc/TA8-GK1-TRAC%20NGHIEM%20NC/index.html) hiện tại đã được **tích hợp sẵn toàn bộ CSS & JS**, không cần bất kỳ file phụ nào khác! Chỉ cần có `index.html` là chạy 100%. |
+| **Lỗi Jekyll build failed** | Trình biên dịch Jekyll của GitHub gặp lỗi phân tích. | Đã có sẵn file [**`.nojekyll`**](file:///d:/websiteabc/TA8-GK1-TRAC%20NGHIEM%20NC/.nojekyll) trong thư mục để tắt Jekyll. |
 
 ## 📁 CẤU TRÚC THƯ MỤC DỰ ÁN
 

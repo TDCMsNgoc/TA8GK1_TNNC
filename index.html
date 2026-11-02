@@ -5,8 +5,1225 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Đề Thi Trắc Nghiệm Tiếng Anh 8 - Giữa Kỳ 1 (Nâng Cao)</title>
   <meta name="description" content="Đề kiểm tra trắc nghiệm Tiếng Anh 8 Giữa học kỳ 1 (Nâng cao) - 40 câu hỏi, thời gian 20 phút, đáp án và giải thích chi tiết chuẩn sau khi nộp bài.">
-  <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📝</text></svg>">
+  <style>
+/* ==========================================================================
+   Base & Reset
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --primary-light: #eff6ff;
+  --primary-border: #bfdbfe;
+  
+  --success: #16a34a;
+  --success-light: #f0fdf4;
+  --success-border: #bbf7d0;
+  
+  --danger: #dc2626;
+  --danger-light: #fef2f2;
+  --danger-border: #fecaca;
+  
+  --warning: #d97706;
+  --warning-light: #fffbeb;
+  --warning-border: #fde68a;
+  
+  --purple: #7c3aed;
+  --purple-light: #f5f3ff;
+  
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --text-light: #94a3b8;
+  
+  --bg-page: #f8fafc;
+  --bg-card: #ffffff;
+  --border-color: #e2e8f0;
+  --border-focus: #3b82f6;
+  
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+  
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================================
+   Header Bar (Sticky)
+   ========================================================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+}
+
+.header-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0.75rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.brand-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.brand-badge {
+  background: linear-gradient(135deg, #1d4ed8, #2563eb);
+  color: white;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 0.35rem 0.65rem;
+  border-radius: var(--radius-sm);
+  letter-spacing: 0.5px;
+}
+
+.brand-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.25;
+}
+
+.brand-subtitle {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+/* Timer Display */
+.timer-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background-color: #f1f5f9;
+  border: 1px solid var(--border-color);
+  padding: 0.45rem 0.9rem;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  font-size: 1.05rem;
+  font-family: var(--font-mono);
+  color: #1e293b;
+  transition: all 0.3s ease;
+}
+
+.timer-pill.warning {
+  background-color: var(--warning-light);
+  border-color: var(--warning-border);
+  color: var(--warning);
+}
+
+.timer-pill.danger {
+  background-color: var(--danger-light);
+  border-color: var(--danger-border);
+  color: var(--danger);
+  animation: pulse-danger 1s infinite alternate;
+}
+
+@keyframes pulse-danger {
+  from { transform: scale(1); }
+  to { transform: scale(1.05); }
+}
+
+.timer-icon {
+  width: 18px;
+  height: 18px;
+}
+
+/* Header Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: white;
+}
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+}
+
+.btn-success {
+  background-color: var(--success);
+  color: white;
+}
+.btn-success:hover {
+  background-color: #15803d;
+  box-shadow: 0 4px 10px rgba(22, 163, 74, 0.3);
+}
+
+.btn-outline {
+  background-color: white;
+  border-color: var(--border-color);
+  color: var(--text-main);
+}
+.btn-outline:hover {
+  background-color: #f8fafc;
+  border-color: #cbd5e1;
+}
+
+.btn-secondary {
+  background-color: #f1f5f9;
+  color: #334155;
+}
+.btn-secondary:hover {
+  background-color: #e2e8f0;
+}
+
+/* Progress bar strip */
+.progress-strip-wrap {
+  width: 100%;
+  height: 4px;
+  background-color: #e2e8f0;
+}
+.progress-strip {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #3b82f6, #10b981);
+  transition: width 0.3s ease;
+}
+
+/* ==========================================================================
+   Main Layout
+   ========================================================================== */
+.main-wrapper {
+  max-width: 1240px;
+  margin: 1.5rem auto 3rem;
+  padding: 0 1.25rem;
+}
+
+.layout-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 1.75rem;
+  align-items: start;
+}
+
+/* Exam Overview Banner */
+.exam-banner {
+  background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #2563eb 100%);
+  color: white;
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow-md);
+  position: relative;
+  overflow: hidden;
+}
+
+.exam-banner::after {
+  content: "";
+  position: absolute;
+  right: -20px;
+  bottom: -40px;
+  width: 160px;
+  height: 160px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.banner-tag {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
+  padding: 0.25rem 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-radius: var(--radius-sm);
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.5px;
+}
+
+.exam-banner h1 {
+  font-size: 1.45rem;
+  font-weight: 800;
+  margin-bottom: 0.35rem;
+  line-height: 1.3;
+}
+
+.exam-meta-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.85rem;
+  font-size: 0.85rem;
+}
+
+.exam-meta-pills span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 0.3rem 0.65rem;
+  border-radius: var(--radius-full);
+}
+
+/* ==========================================================================
+   Question Cards
+   ========================================================================== */
+.section-heading-card {
+  background-color: #f1f5f9;
+  border-left: 4px solid var(--primary);
+  padding: 0.85rem 1.25rem;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  margin: 2rem 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.section-heading-card h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.section-badge-count {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: white;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+}
+
+.question-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.35rem 1.5rem;
+  margin-bottom: 1.25rem;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.question-card:hover {
+  border-color: #cbd5e1;
+  box-shadow: var(--shadow-md);
+}
+
+.question-card.flagged {
+  border-color: #f59e0b;
+  background-color: #fffdf5;
+}
+
+.question-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 0.85rem;
+}
+
+.question-index-badge {
+  display: inline-flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--primary);
+  background: var(--primary-light);
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--primary-border);
+}
+
+.question-tools {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.flag-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+  padding: 0.3rem 0.6rem;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  transition: all 0.2s;
+}
+
+.flag-btn:hover {
+  background: #f8fafc;
+  border-color: var(--border-color);
+  color: var(--warning);
+}
+
+.flag-btn.active {
+  background: var(--warning-light);
+  border-color: var(--warning-border);
+  color: var(--warning);
+}
+
+.level-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+}
+
+.level-NB {
+  background-color: #e0f2fe;
+  color: #0369a1;
+  border: 1px solid #bae6fd;
+}
+.level-TH {
+  background-color: #fef3c7;
+  color: #b45309;
+  border: 1px solid #fde68a;
+}
+.level-VD {
+  background-color: #dcfce7;
+  color: #15803d;
+  border: 1px solid #bbf7d0;
+}
+.level-VDC {
+  background-color: #fae8ff;
+  color: #86198f;
+  border: 1px solid #f5d0fe;
+}
+
+.question-title {
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 1.1rem;
+  line-height: 1.5;
+}
+
+/* Underline style for pronunciation */
+.question-title u,
+.option-label u {
+  text-decoration: none;
+  border-bottom: 2px solid #2563eb;
+  padding-bottom: 1px;
+  font-weight: 700;
+  color: #1d4ed8;
+}
+
+/* Options Grid / List */
+.options-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.65rem;
+}
+
+@media (max-width: 640px) {
+  .options-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.option-item {
+  position: relative;
+}
+
+.option-input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.option-label {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.75rem 0.95rem;
+  background-color: #f8fafc;
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #334155;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.option-label:hover {
+  background-color: #f1f5f9;
+  border-color: #cbd5e1;
+}
+
+.option-key {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-sm);
+  background-color: white;
+  border: 1px solid var(--border-color);
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: #475569;
+  flex-shrink: 0;
+  transition: all 0.15s ease;
+}
+
+/* Selected state during exam */
+.option-input:checked + .option-label {
+  background-color: var(--primary-light);
+  border-color: var(--primary);
+  color: #1e40af;
+  font-weight: 600;
+}
+
+.option-input:checked + .option-label .option-key {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  color: white;
+}
+
+/* ==========================================================================
+   Review Mode States (After submission)
+   ========================================================================== */
+.option-label.is-correct {
+  background-color: var(--success-light) !important;
+  border-color: var(--success) !important;
+  color: #14532d !important;
+  font-weight: 600;
+}
+.option-label.is-correct .option-key {
+  background-color: var(--success) !important;
+  border-color: var(--success) !important;
+  color: white !important;
+}
+
+.option-label.is-wrong {
+  background-color: var(--danger-light) !important;
+  border-color: var(--danger) !important;
+  color: #7f1d1d !important;
+  font-weight: 600;
+}
+.option-label.is-wrong .option-key {
+  background-color: var(--danger) !important;
+  border-color: var(--danger) !important;
+  color: white !important;
+}
+
+/* Explanation Box */
+.explanation-box {
+  margin-top: 1.15rem;
+  padding: 1rem 1.15rem;
+  border-radius: var(--radius-md);
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #166534;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  display: none;
+}
+
+.explanation-box.visible {
+  display: block;
+}
+
+.explanation-title {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 700;
+  font-size: 0.88rem;
+  text-transform: uppercase;
+  color: #15803d;
+  margin-bottom: 0.35rem;
+}
+
+.question-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-sm);
+  margin-left: 0.5rem;
+}
+
+.status-correct {
+  background-color: #dcfce7;
+  color: #15803d;
+  border: 1px solid #86efac;
+}
+
+.status-wrong {
+  background-color: #fee2e2;
+  color: #b91c1c;
+  border: 1px solid #fca5a5;
+}
+
+.status-unanswered {
+  background-color: #f1f5f9;
+  color: #475569;
+  border: 1px solid #cbd5e1;
+}
+
+/* ==========================================================================
+   Sidebar: Question Navigator & Sticky Controls
+   ========================================================================== */
+.sidebar-sticky-panel {
+  position: sticky;
+  top: 4.8rem;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.nav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.nav-header h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.nav-counter {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.nav-matrix-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.45rem;
+  max-height: 360px;
+  overflow-y: auto;
+  padding: 0.25rem 0.25rem 0.5rem;
+}
+
+.matrix-btn {
+  aspect-ratio: 1;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.82rem;
+  font-weight: 700;
+  background-color: #f8fafc;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.15s;
+  position: relative;
+}
+
+.matrix-btn:hover {
+  background-color: #e2e8f0;
+  border-color: #94a3b8;
+}
+
+.matrix-btn.answered {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  color: white;
+}
+
+.matrix-btn.flagged::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  width: 7px;
+  height: 7px;
+  background-color: #f59e0b;
+  border-radius: 50%;
+  border: 1px solid white;
+}
+
+.matrix-btn.correct {
+  background-color: var(--success);
+  border-color: var(--success);
+  color: white;
+}
+
+.matrix-btn.wrong {
+  background-color: var(--danger);
+  border-color: var(--danger);
+  color: white;
+}
+
+.matrix-btn.unanswered-review {
+  background-color: #cbd5e1;
+  border-color: #94a3b8;
+  color: #334155;
+}
+
+/* Legend */
+.nav-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 1rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  display: inline-block;
+}
+
+.dot-unanswered { background-color: #f8fafc; border: 1px solid #cbd5e1; }
+.dot-answered { background-color: var(--primary); }
+.dot-flagged { background-color: #f59e0b; }
+.dot-correct { background-color: var(--success); }
+.dot-wrong { background-color: var(--danger); }
+
+/* Sidebar Action */
+.sidebar-actions {
+  margin-top: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.btn-block {
+  width: 100%;
+}
+
+/* ==========================================================================
+   Results Dashboard (Post-Submission View)
+   ========================================================================== */
+.results-hero-card {
+  background: white;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 2rem 2.25rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-md);
+  display: none;
+}
+
+.results-hero-card.visible {
+  display: block;
+}
+
+.results-grid-top {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .results-grid-top {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
+.score-dial-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+  border: 2px solid var(--primary-border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+}
+
+.score-number {
+  font-size: 3.2rem;
+  font-weight: 900;
+  color: var(--primary);
+  line-height: 1;
+}
+
+.score-scale {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.score-verdict {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-full);
+}
+
+.verdict-excellent { background: #dcfce7; color: #15803d; }
+.verdict-good { background: #e0f2fe; color: #0284c7; }
+.verdict-average { background: #fef3c7; color: #d97706; }
+.verdict-poor { background: #fee2e2; color: #dc2626; }
+
+.results-details h2 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+}
+
+.results-summary-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin: 1.25rem 0;
+}
+
+@media (max-width: 640px) {
+  .results-summary-stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+.stat-box {
+  background: #f8fafc;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1rem;
+}
+
+.stat-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.stat-value {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-top: 0.2rem;
+}
+
+/* Performance breakdowns (by Section & Level) */
+.breakdown-row {
+  margin-top: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+@media (max-width: 768px) {
+  .breakdown-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.breakdown-card {
+  background: #f8fafc;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+}
+
+.breakdown-card h4 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: #334155;
+}
+
+.breakdown-bar-item {
+  margin-bottom: 0.65rem;
+}
+
+.breakdown-bar-item:last-child {
+  margin-bottom: 0;
+}
+
+.breakdown-bar-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #475569;
+  margin-bottom: 0.25rem;
+}
+
+.breakdown-bar-track {
+  width: 100%;
+  height: 7px;
+  background-color: #e2e8f0;
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.breakdown-bar-fill {
+  height: 100%;
+  background-color: var(--primary);
+  border-radius: var(--radius-full);
+  transition: width 0.5s ease;
+}
+
+/* Filter Bar in Review Mode */
+.review-filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  background: white;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 0.6rem 0.85rem;
+  margin-bottom: 1.5rem;
+}
+
+.filter-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--text-muted);
+  transition: all 0.15s;
+}
+
+.filter-btn:hover {
+  background: #f1f5f9;
+  color: var(--text-main);
+}
+
+.filter-btn.active {
+  background: var(--primary);
+  color: white;
+}
+
+/* ==========================================================================
+   Modals
+   ========================================================================== */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.modal-backdrop.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-content {
+  background: white;
+  width: 100%;
+  max-width: 480px;
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-xl);
+  transform: translateY(20px) scale(0.95);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-backdrop.open .modal-content {
+  transform: translateY(0) scale(1);
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.modal-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fee2e2;
+  color: #dc2626;
+  flex-shrink: 0;
+}
+
+.modal-icon.info {
+  background-color: #e0f2fe;
+  color: #0284c7;
+}
+
+.modal-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.modal-body {
+  font-size: 0.95rem;
+  color: #475569;
+  line-height: 1.55;
+  margin-bottom: 1.5rem;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+/* ==========================================================================
+   Student Information Bar (Top of form)
+   ========================================================================== */
+.student-info-card {
+  background: white;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+.info-input-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+  min-width: 200px;
+}
+
+.info-input-group label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.info-input-group input {
+  width: 100%;
+  padding: 0.45rem 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.info-input-group input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+/* ==========================================================================
+   Mobile Bottom Floating Bar
+   ========================================================================== */
+.mobile-sticky-bar {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  border-top: 1px solid var(--border-color);
+  padding: 0.65rem 1rem;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.08);
+  z-index: 45;
+}
+
+@media (max-width: 992px) {
+  .layout-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .sidebar-sticky-panel {
+    display: none;
+  }
+
+  .sidebar-sticky-panel.mobile-drawer-open {
+    display: block;
+    position: fixed;
+    top: 4.5rem;
+    left: 1rem;
+    right: 1rem;
+    bottom: 5rem;
+    z-index: 90;
+    max-height: calc(100vh - 10rem);
+    box-shadow: var(--shadow-xl);
+    border: 2px solid var(--primary-border);
+  }
+
+  .mobile-sticky-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+  }
+}
+
+/* Back to top button */
+.back-to-top-btn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  box-shadow: var(--shadow-lg);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 40;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: all 0.25s ease;
+}
+
+.back-to-top-btn.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.back-to-top-btn:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-xl);
+}
+
+@media (max-width: 992px) {
+  .back-to-top-btn {
+    bottom: 4.8rem;
+    right: 1.25rem;
+    width: 38px;
+    height: 38px;
+  }
+}
+
+/* ==========================================================================
+   Print Styling
+   ========================================================================== */
+@media print {
+  .site-header,
+  .sidebar-sticky-panel,
+  .mobile-sticky-bar,
+  .review-filter-bar,
+  .btn,
+  .flag-btn {
+    display: none !important;
+  }
+
+  body {
+    background: white;
+    color: black;
+    font-size: 11pt;
+  }
+
+  .main-wrapper {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .layout-grid {
+    display: block;
+  }
+
+  .question-card {
+    page-break-inside: avoid;
+    border: 1px solid #ccc;
+    box-shadow: none;
+    margin-bottom: 1rem;
+  }
+
+  .explanation-box {
+    display: block !important;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    color: #111;
+  }
+}
+
+  </style>
 </head>
 <body>
 
@@ -267,8 +1484,1404 @@
     </div>
   </div>
 
-  <!-- Scripts -->
-  <script src="js/questions.js"></script>
-  <script src="js/app.js"></script>
+  <!-- Embedded Data & Scripts -->
+  <script>
+const questionsData = [
+  // A. Pronunciation (Questions 1–4)
+  {
+    id: 1,
+    section: "A",
+    sectionTitle: "A. Pronunciation",
+    question: "Choose the word whose underlined part is pronounced differently from the others.",
+    options: [
+      { key: "A", text: "watche<u>s</u>" },
+      { key: "B", text: "mixe<u>s</u>" },
+      { key: "C", text: "classe<u>s</u>" },
+      { key: "D", text: "cook<u>s</u>" }
+    ],
+    answer: "D",
+    level: "NB",
+    levelName: "Nhận biết",
+    explanation: "<strong>cooks</strong> phát âm là /s/; các từ còn lại phát âm là /ɪz/ (do tận cùng là âm xuýt: ch, x, ss)."
+  },
+  {
+    id: 2,
+    section: "A",
+    sectionTitle: "A. Pronunciation",
+    question: "Choose the word whose underlined part is pronounced differently from the others.",
+    options: [
+      { key: "A", text: "month<u>s</u>" },
+      { key: "B", text: "cough<u>s</u>" },
+      { key: "C", text: "laugh<u>s</u>" },
+      { key: "D", text: "bag<u>s</u>" }
+    ],
+    answer: "D",
+    level: "VD",
+    levelName: "Vận dụng",
+    explanation: "<strong>bags</strong> phát âm là /z/; các từ còn lại phát âm là /s/ (month kết thúc bằng /θ/, cough và laugh tận cùng là gh phát âm là /f/ - trường hợp đặc biệt)."
+  },
+  {
+    id: 3,
+    section: "A",
+    sectionTitle: "A. Pronunciation",
+    question: "Choose the word whose underlined part is pronounced differently from the others.",
+    options: [
+      { key: "A", text: "look<u>ed</u>" },
+      { key: "B", text: "stopp<u>ed</u>" },
+      { key: "C", text: "need<u>ed</u>" },
+      { key: "D", text: "laugh<u>ed</u>" }
+    ],
+    answer: "C",
+    level: "NB",
+    levelName: "Nhận biết",
+    explanation: "<strong>needed</strong> phát âm là /ɪd/ (đứng sau âm /d/, /t/); các từ còn lại phát âm là /t/ (sau các phụ âm vô thanh /k/, /p/, /f/)."
+  },
+  {
+    id: 4,
+    section: "A",
+    sectionTitle: "A. Pronunciation",
+    question: "Choose the word whose underlined part is pronounced differently from the others.",
+    options: [
+      { key: "A", text: "laugh<u>ed</u>" },
+      { key: "B", text: "cough<u>ed</u>" },
+      { key: "C", text: "rais<u>ed</u>" },
+      { key: "D", text: "work<u>ed</u>" }
+    ],
+    answer: "C",
+    level: "VD",
+    levelName: "Vận dụng",
+    explanation: "<strong>raised</strong> phát âm là /d/ (sau âm hữu thanh /z/); các từ còn lại phát âm là /t/ (laughed, coughed có gh = /f/; worked sau /k/)."
+  },
+
+  // B. Time / Place (Questions 5–8)
+  {
+    id: 5,
+    section: "B",
+    sectionTitle: "B. Time / Place",
+    question: "She usually gets up ___ 6 a.m. to prepare breakfast.",
+    options: [
+      { key: "A", text: "in" },
+      { key: "B", text: "on" },
+      { key: "C", text: "at" },
+      { key: "D", text: "for" }
+    ],
+    answer: "C",
+    level: "NB",
+    levelName: "Nhận biết",
+    explanation: "Dùng giới từ <strong>at</strong> trước mốc thời gian / giờ giấc cụ thể (at 6 a.m.)."
+  },
+  {
+    id: 6,
+    section: "B",
+    sectionTitle: "B. Time / Place",
+    question: "My birthday is ___ September, but we will celebrate it ___ Saturday evening.",
+    options: [
+      { key: "A", text: "in – on" },
+      { key: "B", text: "on – in" },
+      { key: "C", text: "in – at" },
+      { key: "D", text: "at – on" }
+    ],
+    answer: "A",
+    level: "TH",
+    levelName: "Thông hiểu",
+    explanation: "Dùng <strong>in</strong> + tháng (in September); dùng <strong>on</strong> + buổi của một ngày cụ thể trong tuần (on Saturday evening)."
+  },
+  {
+    id: 7,
+    section: "B",
+    sectionTitle: "B. Time / Place",
+    question: "There is a poster ___ the wall, and a small clock ___ the corner of the room.",
+    options: [
+      { key: "A", text: "in – on" },
+      { key: "B", text: "on – in" },
+      { key: "C", text: "at – in" },
+      { key: "D", text: "on – at" }
+    ],
+    answer: "B",
+    level: "TH",
+    levelName: "Thông hiểu",
+    explanation: "Dùng <strong>on</strong> + bề mặt phẳng (on the wall); dùng <strong>in</strong> + nơi chốn có không gian bao quanh/góc phòng (in the corner of the room)."
+  },
+  {
+    id: 8,
+    section: "B",
+    sectionTitle: "B. Time / Place",
+    question: "Our class meets ___ the library ___ Friday afternoon, and the meeting ends ___ 5 p.m.",
+    options: [
+      { key: "A", text: "in – on – at" },
+      { key: "B", text: "at – on – at" },
+      { key: "C", text: "at – in – on" },
+      { key: "D", text: "on – on – in" }
+    ],
+    answer: "B",
+    level: "VD",
+    levelName: "Vận dụng",
+    explanation: "<strong>at</strong> + địa điểm cụ thể/nơi công cộng (at the library); <strong>on</strong> + buổi trong một ngày (on Friday afternoon); <strong>at</strong> + giờ chính xác (at 5 p.m.)."
+  },
+
+  // C. Word form (Questions 9–16)
+  {
+    id: 9,
+    section: "C",
+    sectionTitle: "C. Word form",
+    question: "The teacher asked the students to ___ on the lesson.",
+    options: [
+      { key: "A", text: "concentrate" },
+      { key: "B", text: "concentration" },
+      { key: "C", text: "concentrated" },
+      { key: "D", text: "concentrating" }
+    ],
+    answer: "A",
+    level: "NB",
+    levelName: "Nhận biết",
+    explanation: "Cấu trúc: <strong>ask + O + to V1</strong> (yêu cầu ai làm gì) → chọn động từ nguyên mẫu <strong>concentrate</strong>."
+  },
+  {
+    id: 10,
+    section: "C",
+    sectionTitle: "C. Word form",
+    question: "She has a lot of ___ and always comes up with new ideas.",
+    options: [
+      { key: "A", text: "create" },
+      { key: "B", text: "creative" },
+      { key: "C", text: "creativity" },
+      { key: "D", text: "creatively" }
+    ],
+    answer: "C",
+    level: "NB",
+    levelName: "Nhận biết",
+    explanation: "Sau lượng từ <strong>a lot of</strong> cần một danh từ (N) → chọn <strong>creativity</strong> (sự sáng tạo, óc sáng tạo)."
+  },
+  {
+    id: 11,
+    section: "C",
+    sectionTitle: "C. Word form",
+    question: "The children had an ___ afternoon at the beach.",
+    options: [
+      { key: "A", text: "enjoy" },
+      { key: "B", text: "enjoyable" },
+      { key: "C", text: "enjoyment" },
+      { key: "D", text: "enjoyably" }
+    ],
+    answer: "B",
+    level: "TH",
+    levelName: "Thông hiểu",
+    explanation: "Vị trí giữa mạo từ <strong>an</strong> và danh từ <strong>afternoon</strong> cần một tính từ (Adj) để bổ nghĩa → chọn <strong>enjoyable</strong> (thú vị, vui vẻ)."
+  },
+  {
+    id: 12,
+    section: "C",
+    sectionTitle: "C. Word form",
+    question: "The result of the exam was ___, so everyone was surprised.",
+    options: [
+      { key: "A", text: "expect" },
+      { key: "B", text: "expected" },
+      { key: "C", text: "unexpected" },
+      { key: "D", text: "expectation" }
+    ],
+    answer: "C",
+    level: "TH",
+    levelName: "Thông hiểu",
+    explanation: "Sau to be <strong>was</strong> cần một tính từ. Căn cứ vào vế sau \"so everyone was surprised\" (mọi người đều ngạc nhiên) → tính từ mang nghĩa phủ định: <strong>unexpected</strong> (bất ngờ, ngoài dự kiến)."
+  },
+  {
+    id: 13,
+    section: "C",
+    sectionTitle: "C. Word form",
+    question: "Doing too much homework can make students feel ___.",
+    options: [
+      { key: "A", text: "stress" },
+      { key: "B", text: "stressful" },
+      { key: "C", text: "stressed" },
+      { key: "D", text: "stressfully" }
+    ],
+    answer: "C",
+    level: "TH",
+    levelName: "Thông hiểu",
+    explanation: "Cấu trúc: <strong>feel + adj</strong>; khi miêu tả cảm xúc tâm trạng của con người (students) → dùng tính từ đuôi -ed: <strong>stressed</strong> (bị căng thẳng)."
+  },
+  {
+    id: 14,
+    section: "C",
+    sectionTitle: "C. Word form",
+    question: "Ha Long Bay is one of the most popular tourist ___ in Viet Nam.",
+    options: [
+      { key: "A", text: "attract" },
+      { key: "B", text: "attractive" },
+      { key: "C", text: "attractions" },
+      { key: "D", text: "attractively" }
+    ],
+    answer: "C",
+    level: "TH",
+    levelName: "Thông hiểu",
+    explanation: "Cụm danh từ: <strong>tourist attractions</strong> (các điểm thu hút khách du lịch). Sau \"one of the most + adj\" cần danh từ số nhiều → <strong>attractions</strong>."
+  },
+  {
+    id: 15,
+    section: "C",
+    sectionTitle: "C. Word form",
+    question: "Many tourists are ___ by the ___ beauty of the old town.",
+    options: [
+      { key: "A", text: "attract – fascinate" },
+      { key: "B", text: "attracted – fascinating" },
+      { key: "C", text: "attractive – fascinated" },
+      { key: "D", text: "attracting – fascination" }
+    ],
+    answer: "B",
+    level: "VDC",
+    levelName: "Vận dụng cao",
+    explanation: "Vị trí 1 là câu bị động: <strong>are attracted by</strong> (bị thu hút bởi); vị trí 2 cần tính từ đứng trước danh từ beauty: <strong>fascinating beauty</strong> (vẻ đẹp quyến rũ/hấp dẫn)."
+  },
+  {
+    id: 16,
+    section: "C",
+    sectionTitle: "C. Word form",
+    question: "Students today are under great ___ to get high marks.",
+    options: [
+      { key: "A", text: "press" },
+      { key: "B", text: "pressed" },
+      { key: "C", text: "pressing" },
+      { key: "D", text: "pressure" }
+    ],
+    answer: "D",
+    level: "VD",
+    levelName: "Vận dụng",
+    explanation: "Cụm cố định: <strong>under (great) pressure</strong> (chịu áp lực lớn) → cần danh từ <strong>pressure</strong>."
+  },
+
+  // D. Structures (Questions 17–40)
+  {
+    id: 17,
+    section: "D",
+    sectionTitle: "D. Structures",
+    question: "It takes me 30 minutes ___ to school every morning.",
+    options: [
+      { key: "A", text: "go" },
+      { key: "B", text: "to go" },
+      { key: "C", text: "going" },
+      { key: "D", text: "went" }
+    ],
+    answer: "B",
+    level: "NB",
+    levelName: "Nhận biết",
+    explanation: "Cấu trúc: <strong>It takes + sb + time + to V1</strong> (Ai đó mất bao nhiêu thời gian để làm gì)."
+  },
+  {
+    id: 18,
+    section: "D",
+    sectionTitle: "D. Structures",
+    question: "She spends two hours ___ her homework every evening.",
+    options: [
+      { key: "A", text: "do" },
+      { key: "B", text: "to do" },
+      { key: "C", text: "doing" },
+      { key: "D", text: "does" }
+    ],
+    answer: "C",
+    level: "NB",
+    levelName: "Nhận biết",
+    explanation: "Cấu trúc: <strong>spend + time + (on) V-ing</strong> (Dành thời gian vào việc gì) → <strong>doing</strong>."
+  },
+  {
+    id: 19,
+    section: "D",
+    sectionTitle: "D. Structures",
+    question: "My brother is fond of ___ football with his friends.",
+    options: [
+      { key: "A", text: "play" },
+      { key: "B", text: "to play" },
+      { key: "C", text: "playing" },
+      { key: "D", text: "played" }
+    ],
+    answer: "C",
+    level: "NB",
+    levelName: "Nhận biết",
+    explanation: "Cấu trúc: <strong>be fond of + V-ing</strong> (thích làm gì) → <strong>playing</strong>."
+  },
+  {
+    id: 20,
+    section: "D",
+    sectionTitle: "D. Structures",
+    question: "I'm not keen ___ horror films; I prefer comedies.",
+    options: [
+      { key: "A", text: "in" },
+      { key: "B", text: "on" },
+      { key: "C", text: "at" },
+      { key: "D", text: "with" }
+    ],
+    answer: "B",
+    level: "TH",
+    levelName: "Thông hiểu",
+    explanation: "Cụm từ cố định: <strong>be keen on + V-ing/N</strong> (say mê, thích điều gì)."
+  },
+  {
+    id: 21,
+    section: "D",
+    sectionTitle: "D. Structures",
+    question: "She prefers staying at home ___ going out at weekends.",
+    options: [
+      { key: "A", text: "than" },
+      { key: "B", text: "more than" },
+      { key: "C", text: "to" },
+      { key: "D", text: "instead" }
+    ],
+    answer: "C",
+    level: "TH",
+    levelName: "Thông hiểu",
+    explanation: "Cấu trúc so sánh sở thích: <strong>prefer V-ing to V-ing</strong> (thích làm việc này hơn việc kia)."
+  },
+  {
+    id: 22,
+    section: "D",
+    sectionTitle: "D. Structures",
+    question: "I would rather ___ at home than go out in the rain.",
+    options: [
+      { key: "A", text: "stay" },
+      { key: "B", text: "to stay" },
+      { key: "C", text: "staying" },
+      { key: "D", text: "stayed" }
+    ],
+    answer: "A",
+    level: "NB",
+    levelName: "Nhận biết",
+    explanation: "Cấu trúc: <strong>would rather + V1 + than + V1</strong> (thà làm gì hơn làm gì) → chọn <strong>stay</strong>."
+  },
+  {
+    id: 23,
+    section: "D",
+    sectionTitle: "D. Structures",
+    question: "He would rather read books ___ watch TV.",
+    options: [
+      { key: "A", text: "than" },
+      { key: "B", text: "to" },
+      { key: "C", text: "instead of" },
+      { key: "D", text: "more than" }
+    ],
+    answer: "A",
+    level: "TH",
+    levelName: "Thông hiểu",
+    explanation: "Cấu trúc: <strong>would rather + V1 + than + V1</strong> → từ cần điền là <strong>than</strong>."
+  },
+  {
+    id: 24,
+    section: "D",
+    sectionTitle: "D. Structures",
+    question: "“I find it interesting to read comic books.” = “I am ___ comic books.”",
+    options: [
+      { key: "A", text: "interesting in reading" },
+      { key: "B", text: "interested in reading" },
+      { key: "C", text: "interested to read" },
+      { key: "D", text: "interesting to read" }
+    ],
+    answer: "B",
+    level: "TH",
+    levelName: "Thông hiểu",
+    explanation: "Chuyển đổi cấu trúc: <strong>find it + adj + to V1 = be interested in + V-ing</strong>."
+  },
+  {
+    id: 25,
+    section: "D",
+    sectionTitle: "D. Structures",
+    question: "“The show is interesting to the boy.” = “The boy is ___ the show.”",
+    options: [
+      { key: "A", text: "interested in" },
+      { key: "B", text: "interesting in" },
+      { key: "C", text: "interested of" },
+      { key: "D", text: "interesting to" }
+    ],
+    answer: "A",
+    level: "NB",
+    levelName: "Nhận biết",
+    explanation: "Quy tắc tương đương: <strong>Sth is interesting to sb = sb is interested in sth</strong>."
+  },
+  {
+    id: 26,
+    section: "D",
+    sectionTitle: "D. Structures",
+    question: "My new school is ___ than my old one.",
+    options: [
+      { key: "A", text: "more big" },
+      { key: "B", text: "bigger" },
+      { key: "C", text: "biggest" },
+      { key: "D", text: "more bigger" }
+    ],
+    answer: "B",
+    level: "NB",
+    levelName: "Nhận biết",
+    explanation: "So sánh hơn với tính từ ngắn (short adj): <strong>adj + er + than</strong> (big là 1 phụ âm đứng sau 1 nguyên âm → gấp đôi g: <strong>bigger</strong>)."
+  },
+  {
+    id: 27,
+    section: "D",
+    sectionTitle: "D. Structures",
+    question: "This exercise is ___ than the one we did yesterday.",
+    options: [
+      { key: "A", text: "more difficult" },
+      { key: "B", text: "difficulter" },
+      { key: "C", text: "most difficult" },
+      { key: "D", text: "as difficult more" }
+    ],
+    answer: "A",
+    level: "NB",
+    levelName: "Nhận biết",
+    explanation: "So sánh hơn với tính từ dài (long adj): <strong>more + adj + than</strong> → <strong>more difficult</strong>."
+  },
+  {
+    id: 28,
+    section: "D",
+    sectionTitle: "D. Structures",
+    question: "Lan speaks English ___ than her brother.",
+    options: [
+      { key: "A", text: "fluently" },
+      { key: "B", text: "more fluent" },
+      { key: "C", text: "more fluently" },
+      { key: "D", text: "fluenter" }
+    ],
+    answer: "C",
+    level: "TH",
+    levelName: "Thông hiểu",
+    explanation: "So sánh hơn với trạng từ đuôi -ly: dùng cấu trúc <strong>more + adv + than</strong> → <strong>more fluently</strong>."
+  },
+  {
+    id: 29,
+    section: "D",
+    sectionTitle: "D. Structures",
+    question: "Because he wanted ___ his English, Long spent two hours every day ___ to English podcasts.",
+    options: [
+      { key: "A", text: "improving – to listen" },
+      { key: "B", text: "to improve – listening" },
+      { key: "C", text: "improve – listen" },
+      { key: "D", text: "to improve – to listen" }
+    ],
+    answer: "B",
+    level: "VDC",
+    levelName: "Vận dụng cao",
+    explanation: "Kết hợp 2 cấu trúc: <strong>want + to V1</strong> (muốn làm gì) và <strong>spend + time + V-ing</strong> (dành thời gian làm gì) → <strong>to improve – listening</strong>."
+  },
+  {
+    id: 30,
+    section: "D",
+    sectionTitle: "D. Structures",
+    question: "It was raining heavily; ___, we cancelled the picnic.",
+    options: [
+      { key: "A", text: "however" },
+      { key: "B", text: "therefore" },
+      { key: "C", text: "otherwise" },
+      { key: "D", text: "although" }
+    ],
+    answer: "B",
+    level: "TH",
+    levelName: "Thông hiểu",
+    explanation: "Liên từ trạng từ: <strong>; therefore,</strong> = vì vậy, do đó (chỉ kết quả hệ quả hợp logic)."
+  },
+  {
+    id: 31,
+    section: "D",
+    sectionTitle: "D. Structures",
+    question: "We must hurry; ___, we will miss the last bus.",
+    options: [
+      { key: "A", text: "therefore" },
+      { key: "B", text: "however" },
+      { key: "C", text: "otherwise" },
+      { key: "D", text: "so" }
+    ],
+    answer: "C",
+    level: "TH",
+    levelName: "Thông hiểu",
+    explanation: "Liên từ trạng từ: <strong>; otherwise,</strong> = nếu không thì (chỉ hậu quả nếu không làm điều nêu trước đó)."
+  },
+  {
+    id: 32,
+    section: "D",
+    sectionTitle: "D. Structures",
+    question: "___ he was very tired, he continued working.",
+    options: [
+      { key: "A", text: "Because" },
+      { key: "B", text: "Although" },
+      { key: "C", text: "So" },
+      { key: "D", text: "However" }
+    ],
+    answer: "B",
+    level: "NB",
+    levelName: "Nhận biết",
+    explanation: "Liên từ chỉ sự tương phản / nhượng bộ: <strong>Although + S + V, S + V</strong> (Mặc dù ... nhưng ...)."
+  },
+  {
+    id: 33,
+    section: "D",
+    sectionTitle: "D. Structures",
+    question: "The test was difficult; ___, most students passed it.",
+    options: [
+      { key: "A", text: "therefore" },
+      { key: "B", text: "otherwise" },
+      { key: "C", text: "however" },
+      { key: "D", text: "because" }
+    ],
+    answer: "C",
+    level: "TH",
+    levelName: "Thông hiểu",
+    explanation: "Liên từ: <strong>; however,</strong> = tuy nhiên (nối 2 mệnh đề có ý nghĩa tương phản đối lập: bài khó tuy nhiên đa số vẫn đỗ)."
+  },
+  {
+    id: 34,
+    section: "D",
+    sectionTitle: "D. Structures",
+    question: "He worked part-time ___ he could pay for his course; ___, he had little time for hobbies.",
+    options: [
+      { key: "A", text: "so that – however" },
+      { key: "B", text: "so as to – therefore" },
+      { key: "C", text: "in order to – however" },
+      { key: "D", text: "so that – therefore" }
+    ],
+    answer: "A",
+    level: "VDC",
+    levelName: "Vận dụng cao",
+    explanation: "Vế 1 chỉ mục đích có mệnh đề (S + V) → dùng <strong>so that</strong>; Vế 2 mang nghĩa tương phản đối lập kết quả → dùng <strong>; however,</strong>."
+  },
+  {
+    id: 35,
+    section: "D",
+    sectionTitle: "D. Structures",
+    question: "He gets up early ___ late for school.",
+    options: [
+      { key: "A", text: "so as not to be" },
+      { key: "B", text: "so that not to be" },
+      { key: "C", text: "in order that not be" },
+      { key: "D", text: "not so as to be" }
+    ],
+    answer: "A",
+    level: "VD",
+    levelName: "Vận dụng",
+    explanation: "Cụm chỉ mục đích phủ định: <strong>so as not to + V1 = in order not to + V1</strong> (để không bị trễ học)."
+  },
+  {
+    id: 36,
+    section: "D",
+    sectionTitle: "D. Structures",
+    question: "They are going to build a new library. = They have an intention ___ a new library.",
+    options: [
+      { key: "A", text: "to build" },
+      { key: "B", text: "of building" },
+      { key: "C", text: "for building" },
+      { key: "D", text: "building" }
+    ],
+    answer: "B",
+    level: "TH",
+    levelName: "Thông hiểu",
+    explanation: "Cấu trúc tương đương chỉ dự định: <strong>be going to V1 = have an intention of + V-ing</strong> (có ý định làm gì)."
+  },
+  {
+    id: 37,
+    section: "D",
+    sectionTitle: "D. Structures",
+    question: "Many students find ___ hard ___ on their lessons when they are under pressure.",
+    options: [
+      { key: "A", text: "it – to concentrate" },
+      { key: "B", text: "that – concentrating" },
+      { key: "C", text: "it – concentration" },
+      { key: "D", text: "them – to concentrate" }
+    ],
+    answer: "A",
+    level: "VDC",
+    levelName: "Vận dụng cao",
+    explanation: "Cấu trúc với chủ ngữ giả tân ngữ: <strong>find + it + adj + to V1</strong> (thấy việc gì như thế nào) → <strong>it – to concentrate</strong>."
+  },
+  {
+    id: 38,
+    section: "D",
+    sectionTitle: "D. Structures",
+    question: "Which sentence is closest in meaning to “Minh prefers listening to music to watching TV”?",
+    options: [
+      { key: "A", text: "Minh would rather watch TV than listen to music." },
+      { key: "B", text: "Minh would rather listen to music than watch TV." },
+      { key: "C", text: "Minh prefers watching TV to listening to music." },
+      { key: "D", text: "Minh would rather listening to music than watching TV." }
+    ],
+    answer: "B",
+    level: "VD",
+    levelName: "Vận dụng",
+    explanation: "Cấu trúc tương đương: <strong>prefer V-ing to V-ing = would rather V1 than V1</strong> (Minh thích nghe nhạc hơn xem TV → Minh thà nghe nhạc hơn xem TV)."
+  },
+  {
+    id: 39,
+    section: "D",
+    sectionTitle: "D. Structures",
+    question: "She runs as ___ as her brother does.",
+    options: [
+      { key: "A", text: "fast" },
+      { key: "B", text: "faster" },
+      { key: "C", text: "more fast" },
+      { key: "D", text: "fastest" }
+    ],
+    answer: "A",
+    level: "NB",
+    levelName: "Nhận biết",
+    explanation: "Cấu trúc so sánh bằng: <strong>as + adj/adv + as</strong> (fast vừa là tính từ vừa là trạng từ nguyên thể) → chọn <strong>fast</strong>."
+  },
+  {
+    id: 40,
+    section: "D",
+    sectionTitle: "D. Structures",
+    question: "“It took Nam two hours to finish the project.” = ___",
+    options: [
+      { key: "A", text: "Nam spent two hours to finish the project." },
+      { key: "B", text: "Nam spent two hours finishing the project." },
+      { key: "C", text: "Nam took two hours finishing the project." },
+      { key: "D", text: "The project spent Nam two hours to finish." }
+    ],
+    answer: "B",
+    level: "VD",
+    levelName: "Vận dụng",
+    explanation: "Cấu trúc viết lại câu tương đương: <strong>It took + sb + time + to V1 = S + spent + time + V-ing</strong>."
+  }
+];
+
+if (typeof module !== "undefined" && module.exports) {
+  module.exports = questionsData;
+}
+
+  </script>
+  <script>
+/**
+ * TA8-GK1 - Trắc nghiệm Tiếng Anh 8 Giữa Kỳ 1 (Nâng Cao)
+ * Main Application Script
+ */
+
+(function () {
+  'use strict';
+
+  // State
+  const TOTAL_QUESTIONS = questionsData.length; // 40
+  const TOTAL_TIME_SECONDS = 20 * 60; // 20 minutes = 1200 seconds
+
+  let timeRemaining = TOTAL_TIME_SECONDS;
+  let timerInterval = null;
+  let isSubmitted = false;
+  let userAnswers = {}; // { [questionId]: 'A' | 'B' | 'C' | 'D' }
+  let flaggedQuestions = new Set();
+  let currentFilter = 'all';
+
+  // DOM Elements
+  const timerTextEl = document.getElementById('timerText');
+  const timerPillEl = document.getElementById('timerPill');
+  const progressStripEl = document.getElementById('progressStrip');
+  const questionsContainerEl = document.getElementById('questionsContainer');
+  const questionMatrixEl = document.getElementById('questionMatrix');
+  const navCounterTextEl = document.getElementById('navCounterText');
+  const navLegendEl = document.getElementById('navLegend');
+  const studentInfoCardEl = document.getElementById('studentInfoCard');
+
+  // Submit Buttons
+  const btnSubmitTop = document.getElementById('btnSubmitTop');
+  const btnSubmitSidebar = document.getElementById('btnSubmitSidebar');
+  const btnSubmitMobile = document.getElementById('btnSubmitMobile');
+  const submitBtnTextEl = document.getElementById('submitBtnText');
+
+  // Modals
+  const modalConfirmSubmit = document.getElementById('modalConfirmSubmit');
+  const modalConfirmBody = document.getElementById('modalConfirmBody');
+  const modalRemainingTime = document.getElementById('modalRemainingTime');
+  const btnCancelSubmit = document.getElementById('btnCancelSubmit');
+  const btnConfirmSubmit = document.getElementById('btnConfirmSubmit');
+
+  const modalTimeOut = document.getElementById('modalTimeOut');
+  const btnCloseTimeOutModal = document.getElementById('btnCloseTimeOutModal');
+
+  // Mobile elements
+  const mobileCounterText = document.getElementById('mobileCounterText');
+  const mobileTimerText = document.getElementById('mobileTimerText');
+  const btnToggleMobilePalette = document.getElementById('btnToggleMobilePalette');
+  const sidebarPanel = document.getElementById('sidebarPanel');
+
+  // Results Dashboard Elements
+  const resultsCard = document.getElementById('resultsCard');
+  const finalScore10El = document.getElementById('finalScore10');
+  const scoreVerdictEl = document.getElementById('scoreVerdict');
+  const studentGreetingResult = document.getElementById('studentGreetingResult');
+  const statCorrectCount = document.getElementById('statCorrectCount');
+  const statAccuracy = document.getElementById('statAccuracy');
+  const statTimeSpent = document.getElementById('statTimeSpent');
+  const sectionBreakdownList = document.getElementById('sectionBreakdownList');
+  const levelBreakdownList = document.getElementById('levelBreakdownList');
+  const btnPrintResults = document.getElementById('btnPrintResults');
+  const btnRetake = document.getElementById('btnRetake');
+
+  // Filter Bar
+  const reviewFilterBar = document.getElementById('reviewFilterBar');
+  const filterCountCorrect = document.getElementById('filterCountCorrect');
+  const filterCountWrong = document.getElementById('filterCountWrong');
+  const filterCountUnanswered = document.getElementById('filterCountUnanswered');
+
+  /* ==========================================================================
+     Initialization
+     ========================================================================== */
+  function init() {
+    renderQuestions();
+    renderMatrix();
+    updateProgress();
+    startTimer();
+    bindEvents();
+  }
+
+  /* ==========================================================================
+     Render Question List
+     ========================================================================== */
+  function renderQuestions() {
+    questionsContainerEl.innerHTML = '';
+    let currentSection = '';
+
+    questionsData.forEach((q) => {
+      // Check if we need to insert section heading
+      if (q.section !== currentSection) {
+        currentSection = q.section;
+        const sectionHeading = document.createElement('div');
+        sectionHeading.className = 'section-heading-card';
+        
+        let countText = '';
+        if (q.section === 'A') countText = 'Câu 1 – 4 (4 câu)';
+        else if (q.section === 'B') countText = 'Câu 5 – 8 (4 câu)';
+        else if (q.section === 'C') countText = 'Câu 9 – 16 (8 câu)';
+        else if (q.section === 'D') countText = 'Câu 17 – 40 (24 câu)';
+
+        sectionHeading.innerHTML = `
+          <h2>${q.sectionTitle}</h2>
+          <span class="section-badge-count">${countText}</span>
+        `;
+        questionsContainerEl.appendChild(sectionHeading);
+      }
+
+      // Create Question Card
+      const card = document.createElement('div');
+      card.className = 'question-card';
+      card.id = `q-card-${q.id}`;
+      card.dataset.qid = q.id;
+      card.dataset.section = q.section;
+      card.dataset.level = q.level;
+
+      // Options HTML
+      const optionsHtml = q.options.map((opt) => `
+        <div class="option-item">
+          <input 
+            type="radio" 
+            name="question_${q.id}" 
+            id="opt_${q.id}_${opt.key}" 
+            value="${opt.key}" 
+            class="option-input"
+            ${userAnswers[q.id] === opt.key ? 'checked' : ''}
+          >
+          <label for="opt_${q.id}_${opt.key}" class="option-label" id="label_${q.id}_${opt.key}">
+            <span class="option-key">${opt.key}</span>
+            <span class="option-text">${opt.text}</span>
+          </label>
+        </div>
+      `).join('');
+
+      card.innerHTML = `
+        <div class="question-header">
+          <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+            <span class="question-index-badge">Câu ${q.id}</span>
+            <span class="level-tag level-${q.level}" id="levelTag_${q.id}" style="display: none;">${q.level} • ${q.levelName}</span>
+            <span class="question-status-badge" id="statusBadge_${q.id}" style="display: none;"></span>
+          </div>
+          <div class="question-tools">
+            <button type="button" class="flag-btn ${flaggedQuestions.has(q.id) ? 'active' : ''}" data-flag-qid="${q.id}" title="Đánh dấu để xem lại sau">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="${flaggedQuestions.has(q.id) ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2">
+                <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path>
+                <line x1="4" y1="22" x2="4" y2="15"></line>
+              </svg>
+              <span>${flaggedQuestions.has(q.id) ? 'Đã đánh dấu' : 'Đánh dấu'}</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="question-title">${q.question}</div>
+
+        <div class="options-grid">
+          ${optionsHtml}
+        </div>
+
+        <div class="explanation-box" id="explainBox_${q.id}">
+          <div class="explanation-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="16" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+            Giải thích chi tiết:
+          </div>
+          <div class="explanation-content">${q.explanation}</div>
+        </div>
+      `;
+
+      questionsContainerEl.appendChild(card);
+    });
+
+    // Attach option change events
+    document.querySelectorAll('.option-input').forEach((radio) => {
+      radio.addEventListener('change', (e) => {
+        if (isSubmitted) return;
+        const qid = parseInt(e.target.name.replace('question_', ''), 10);
+        userAnswers[qid] = e.target.value;
+        updateProgress();
+        updateMatrixButton(qid);
+      });
+    });
+
+    // Attach flag events
+    document.querySelectorAll('.flag-btn').forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        const qid = parseInt(btn.dataset.flagQid, 10);
+        toggleFlag(qid);
+      });
+    });
+  }
+
+  /* ==========================================================================
+     Render Navigator Matrix (1-40)
+     ========================================================================== */
+  function renderMatrix() {
+    questionMatrixEl.innerHTML = '';
+    for (let i = 1; i <= TOTAL_QUESTIONS; i++) {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'matrix-btn';
+      btn.id = `matrix-btn-${i}`;
+      btn.textContent = i;
+      btn.title = `Chuyển đến câu ${i}`;
+
+      btn.addEventListener('click', () => {
+        const target = document.getElementById(`q-card-${i}`);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          target.style.transition = 'box-shadow 0.3s ease';
+          target.style.boxShadow = '0 0 0 3px rgba(37, 99, 235, 0.4)';
+          setTimeout(() => {
+            target.style.boxShadow = '';
+          }, 1200);
+
+          // Close mobile drawer if open
+          if (sidebarPanel.classList.contains('mobile-drawer-open')) {
+            sidebarPanel.classList.remove('mobile-drawer-open');
+          }
+        }
+      });
+
+      questionMatrixEl.appendChild(btn);
+    }
+  }
+
+  /* ==========================================================================
+     Update Matrix Button State
+     ========================================================================== */
+  function updateMatrixButton(qid) {
+    const btn = document.getElementById(`matrix-btn-${qid}`);
+    if (!btn) return;
+
+    if (!isSubmitted) {
+      if (userAnswers[qid]) {
+        btn.classList.add('answered');
+      } else {
+        btn.classList.remove('answered');
+      }
+
+      if (flaggedQuestions.has(qid)) {
+        btn.classList.add('flagged');
+      } else {
+        btn.classList.remove('flagged');
+      }
+    } else {
+      // Review mode states
+      const q = questionsData.find(item => item.id === qid);
+      btn.classList.remove('answered', 'flagged', 'correct', 'wrong', 'unanswered-review');
+
+      if (!userAnswers[qid]) {
+        btn.classList.add('unanswered-review');
+      } else if (userAnswers[qid] === q.answer) {
+        btn.classList.add('correct');
+      } else {
+        btn.classList.add('wrong');
+      }
+    }
+  }
+
+  /* ==========================================================================
+     Toggle Question Flag
+     ========================================================================== */
+  function toggleFlag(qid) {
+    const card = document.getElementById(`q-card-${qid}`);
+    const flagBtn = card.querySelector(`[data-flag-qid="${qid}"]`);
+
+    if (flaggedQuestions.has(qid)) {
+      flaggedQuestions.delete(qid);
+      card.classList.remove('flagged');
+      if (flagBtn) {
+        flagBtn.classList.remove('active');
+        flagBtn.querySelector('span').textContent = 'Đánh dấu';
+        flagBtn.querySelector('svg').setAttribute('fill', 'none');
+      }
+    } else {
+      flaggedQuestions.add(qid);
+      card.classList.add('flagged');
+      if (flagBtn) {
+        flagBtn.classList.add('active');
+        flagBtn.querySelector('span').textContent = 'Đã đánh dấu';
+        flagBtn.querySelector('svg').setAttribute('fill', 'currentColor');
+      }
+    }
+    updateMatrixButton(qid);
+  }
+
+  /* ==========================================================================
+     Update Progress & Counter
+     ========================================================================== */
+  function updateProgress() {
+    const answeredCount = Object.keys(userAnswers).length;
+    const percent = (answeredCount / TOTAL_QUESTIONS) * 100;
+    progressStripEl.style.width = `${percent}%`;
+
+    const countText = `${answeredCount}/${TOTAL_QUESTIONS}`;
+    navCounterTextEl.textContent = `${countText} đã chọn`;
+    mobileCounterText.textContent = `${countText} câu`;
+  }
+
+  /* ==========================================================================
+     Timer Management (20 minutes)
+     ========================================================================== */
+  function startTimer() {
+    clearInterval(timerInterval);
+    updateTimerDisplay();
+
+    timerInterval = setInterval(() => {
+      if (timeRemaining > 0) {
+        timeRemaining--;
+        updateTimerDisplay();
+      } else {
+        clearInterval(timerInterval);
+        handleTimeOut();
+      }
+    }, 1000);
+  }
+
+  function updateTimerDisplay() {
+    const minutes = Math.floor(timeRemaining / 60);
+    const seconds = timeRemaining % 60;
+    const formatted = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+
+    timerTextEl.textContent = formatted;
+    mobileTimerText.textContent = formatted;
+
+    // Visual warnings
+    if (timeRemaining <= 120) { // Under 2 mins
+      timerPillEl.classList.remove('warning');
+      timerPillEl.classList.add('danger');
+    } else if (timeRemaining <= 300) { // Under 5 mins
+      timerPillEl.classList.remove('danger');
+      timerPillEl.classList.add('warning');
+    } else {
+      timerPillEl.classList.remove('warning', 'danger');
+    }
+  }
+
+  function handleTimeOut() {
+    if (isSubmitted) return;
+    modalTimeOut.classList.add('open');
+    submitExam(true);
+  }
+
+  /* ==========================================================================
+     Submission Logic & Confirmation
+     ========================================================================== */
+  function promptSubmitModal() {
+    if (isSubmitted) return;
+
+    const answeredCount = Object.keys(userAnswers).length;
+    const unansweredCount = TOTAL_QUESTIONS - answeredCount;
+
+    const minutes = Math.floor(timeRemaining / 60);
+    const seconds = timeRemaining % 60;
+    modalRemainingTime.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+
+    if (unansweredCount > 0) {
+      modalConfirmBody.innerHTML = `
+        <p style="margin-bottom: 0.5rem; color: #dc2626; font-weight: 600;">
+          ⚠️ Bạn còn <strong>${unansweredCount} câu</strong> chưa chọn đáp án!
+        </p>
+        <p>
+          Bạn mới chỉ hoàn thành <strong>${answeredCount}/${TOTAL_QUESTIONS}</strong> câu hỏi. Bạn có chắc chắn muốn nộp bài thi ngay bây giờ không?
+        </p>
+      `;
+    } else {
+      modalConfirmBody.innerHTML = `
+        <p style="margin-bottom: 0.5rem; color: #16a34a; font-weight: 600;">
+          🎉 Bạn đã hoàn thành toàn bộ <strong>${TOTAL_QUESTIONS}/${TOTAL_QUESTIONS}</strong> câu hỏi!
+        </p>
+        <p>
+          Bạn có muốn nộp bài để xem điểm số, đáp án đúng và phần giải thích chi tiết không?
+        </p>
+      `;
+    }
+
+    modalConfirmSubmit.classList.add('open');
+  }
+
+  function submitExam(isAuto = false) {
+    if (isSubmitted) return;
+    isSubmitted = true;
+    clearInterval(timerInterval);
+
+    modalConfirmSubmit.classList.remove('open');
+
+    // Calculate score & statistics
+    let correctCount = 0;
+    const sectionStats = {
+      A: { total: 0, correct: 0, name: 'Phát âm (Pronunciation)' },
+      B: { total: 0, correct: 0, name: 'Thời gian & Nơi chốn (Time / Place)' },
+      C: { total: 0, correct: 0, name: 'Dạng từ (Word form)' },
+      D: { total: 0, correct: 0, name: 'Cấu trúc (Structures)' }
+    };
+    const levelStats = {
+      NB: { total: 0, correct: 0, name: 'Nhận biết (NB)' },
+      TH: { total: 0, correct: 0, name: 'Thông hiểu (TH)' },
+      VD: { total: 0, correct: 0, name: 'Vận dụng (VD)' },
+      VDC: { total: 0, correct: 0, name: 'Vận dụng cao (VDC)' }
+    };
+
+    questionsData.forEach((q) => {
+      // Accumulate totals
+      sectionStats[q.section].total++;
+      levelStats[q.level].total++;
+
+      const chosen = userAnswers[q.id];
+      const isCorrect = chosen === q.answer;
+
+      if (isCorrect) {
+        correctCount++;
+        sectionStats[q.section].correct++;
+        levelStats[q.level].correct++;
+      }
+
+      // Update question card for review
+      applyQuestionReviewUI(q, chosen, isCorrect);
+      // Update navigator button
+      updateMatrixButton(q.id);
+    });
+
+    const score10 = ((correctCount / TOTAL_QUESTIONS) * 10).toFixed(2);
+    const accuracy = Math.round((correctCount / TOTAL_QUESTIONS) * 100);
+    const timeSpentSeconds = TOTAL_TIME_SECONDS - timeRemaining;
+    const spentMin = Math.floor(timeSpentSeconds / 60);
+    const spentSec = timeSpentSeconds % 60;
+    const timeSpentStr = `${spentMin} phút ${spentSec} giây`;
+
+    // Render results in dashboard
+    renderResultsDashboard({
+      score10,
+      correctCount,
+      accuracy,
+      timeSpentStr,
+      sectionStats,
+      levelStats
+    });
+
+    // Update header & sidebar UI
+    submitBtnTextEl.textContent = 'Đã hoàn thành';
+    btnSubmitTop.disabled = true;
+    btnSubmitSidebar.style.display = 'none';
+    btnSubmitMobile.style.display = 'none';
+
+    // Show filter bar
+    reviewFilterBar.style.display = 'flex';
+    filterCountCorrect.textContent = correctCount;
+    filterCountWrong.textContent = Object.keys(userAnswers).length - correctCount;
+    filterCountUnanswered.textContent = TOTAL_QUESTIONS - Object.keys(userAnswers).length;
+
+    // Update legend for review mode
+    navLegendEl.innerHTML = `
+      <div class="legend-item"><span class="legend-dot dot-correct"></span> Đúng</div>
+      <div class="legend-item"><span class="legend-dot dot-wrong"></span> Sai</div>
+      <div class="legend-item"><span class="legend-dot" style="background:#cbd5e1;"></span> Chưa làm</div>
+    `;
+
+    // Scroll smoothly to results card
+    resultsCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  /* ==========================================================================
+     Apply Review UI to a single Question Card
+     ========================================================================== */
+  function applyQuestionReviewUI(q, chosen, isCorrect) {
+    const card = document.getElementById(`q-card-${q.id}`);
+    if (!card) return;
+
+    // Show level badge
+    const levelTag = document.getElementById(`levelTag_${q.id}`);
+    if (levelTag) levelTag.style.display = 'inline-block';
+
+    // Show status badge
+    const statusBadge = document.getElementById(`statusBadge_${q.id}`);
+    if (statusBadge) {
+      statusBadge.style.display = 'inline-flex';
+      if (!chosen) {
+        statusBadge.className = 'question-status-badge status-unanswered';
+        statusBadge.textContent = 'Chưa làm (0đ)';
+        card.dataset.status = 'unanswered';
+      } else if (isCorrect) {
+        statusBadge.className = 'question-status-badge status-correct';
+        statusBadge.textContent = 'Chính xác (+0.25đ)';
+        card.dataset.status = 'correct';
+      } else {
+        statusBadge.className = 'question-status-badge status-wrong';
+        statusBadge.textContent = 'Sai (0đ)';
+        card.dataset.status = 'wrong';
+      }
+    }
+
+    // Disable all radio buttons
+    card.querySelectorAll('.option-input').forEach((input) => {
+      input.disabled = true;
+    });
+
+    // Highlight correct & wrong options
+    q.options.forEach((opt) => {
+      const label = document.getElementById(`label_${q.id}_${opt.key}`);
+      if (opt.key === q.answer) {
+        label.classList.add('is-correct');
+        label.querySelector('.option-text').innerHTML += ` <strong style="color:#16a34a;">✓ (Đáp án đúng)</strong>`;
+      } else if (opt.key === chosen && !isCorrect) {
+        label.classList.add('is-wrong');
+        label.querySelector('.option-text').innerHTML += ` <strong style="color:#dc2626;">✗ (Lựa chọn của bạn)</strong>`;
+      }
+    });
+
+    // Show explanation box
+    const explainBox = document.getElementById(`explainBox_${q.id}`);
+    if (explainBox) {
+      explainBox.classList.add('visible');
+    }
+  }
+
+  /* ==========================================================================
+     Render Results Dashboard
+     ========================================================================== */
+  function renderResultsDashboard(data) {
+    resultsCard.classList.add('visible');
+    finalScore10El.textContent = data.score10;
+
+    // Score Verdict
+    const scoreVal = parseFloat(data.score10);
+    if (scoreVal >= 8.5) {
+      scoreVerdictEl.textContent = 'Xuất sắc 🌟';
+      scoreVerdictEl.className = 'score-verdict verdict-excellent';
+    } else if (scoreVal >= 7.0) {
+      scoreVerdictEl.textContent = 'Khá giỏi 👍';
+      scoreVerdictEl.className = 'score-verdict verdict-good';
+    } else if (scoreVal >= 5.0) {
+      scoreVerdictEl.textContent = 'Trung bình 📖';
+      scoreVerdictEl.className = 'score-verdict verdict-average';
+    } else {
+      scoreVerdictEl.textContent = 'Cần cố gắng thêm ✍️';
+      scoreVerdictEl.className = 'score-verdict verdict-poor';
+    }
+
+    // Student Greeting
+    const sName = document.getElementById('studentName').value.trim();
+    const sClass = document.getElementById('studentClass').value.trim();
+    let greeting = 'Chúc mừng bạn đã hoàn thành bài thi!';
+    if (sName) {
+      greeting = `Thí sinh: <strong>${sName}</strong> ${sClass ? `(${sClass})` : ''} đã hoàn thành bài thi.`;
+    }
+    studentGreetingResult.innerHTML = greeting;
+
+    statCorrectCount.textContent = `${data.correctCount} / ${TOTAL_QUESTIONS}`;
+    statAccuracy.textContent = `${data.accuracy}%`;
+    statTimeSpent.textContent = data.timeSpentStr;
+
+    // Render Section Breakdown Bars
+    sectionBreakdownList.innerHTML = '';
+    Object.keys(data.sectionStats).forEach((key) => {
+      const item = data.sectionStats[key];
+      const percent = item.total > 0 ? Math.round((item.correct / item.total) * 100) : 0;
+
+      const row = document.createElement('div');
+      row.className = 'breakdown-bar-item';
+      row.innerHTML = `
+        <div class="breakdown-bar-label">
+          <span>${item.name}</span>
+          <span><strong>${item.correct}/${item.total}</strong> (${percent}%)</span>
+        </div>
+        <div class="breakdown-bar-track">
+          <div class="breakdown-bar-fill" style="width: ${percent}%;"></div>
+        </div>
+      `;
+      sectionBreakdownList.appendChild(row);
+    });
+
+    // Render Level Breakdown Bars
+    levelBreakdownList.innerHTML = '';
+    Object.keys(data.levelStats).forEach((key) => {
+      const item = data.levelStats[key];
+      const percent = item.total > 0 ? Math.round((item.correct / item.total) * 100) : 0;
+
+      let color = '#2563eb';
+      if (key === 'NB') color = '#0284c7';
+      if (key === 'TH') color = '#d97706';
+      if (key === 'VD') color = '#16a34a';
+      if (key === 'VDC') color = '#9333ea';
+
+      const row = document.createElement('div');
+      row.className = 'breakdown-bar-item';
+      row.innerHTML = `
+        <div class="breakdown-bar-label">
+          <span>${item.name}</span>
+          <span><strong>${item.correct}/${item.total}</strong> (${percent}%)</span>
+        </div>
+        <div class="breakdown-bar-track">
+          <div class="breakdown-bar-fill" style="width: ${percent}%; background-color: ${color};"></div>
+        </div>
+      `;
+      levelBreakdownList.appendChild(row);
+    });
+  }
+
+  /* ==========================================================================
+     Filter Questions in Review Mode
+     ========================================================================== */
+  function setReviewFilter(filter) {
+    currentFilter = filter;
+
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      if (btn.dataset.filter === filter) btn.classList.add('active');
+      else btn.classList.remove('active');
+    });
+
+    document.querySelectorAll('.question-card').forEach(card => {
+      const status = card.dataset.status;
+      if (filter === 'all') {
+        card.style.display = 'block';
+      } else if (filter === 'correct' && status === 'correct') {
+        card.style.display = 'block';
+      } else if (filter === 'wrong' && status === 'wrong') {
+        card.style.display = 'block';
+      } else if (filter === 'unanswered' && status === 'unanswered') {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  /* ==========================================================================
+     Retake Exam (Reset state)
+     ========================================================================== */
+  function retakeExam() {
+    if (!confirm('Bạn có muốn làm lại bài thi từ đầu? Tất cả câu trả lời trước đó sẽ được làm mới.')) {
+      return;
+    }
+
+    isSubmitted = false;
+    userAnswers = {};
+    flaggedQuestions.clear();
+    timeRemaining = TOTAL_TIME_SECONDS;
+    currentFilter = 'all';
+
+    // Hide results & filter
+    resultsCard.classList.remove('visible');
+    reviewFilterBar.style.display = 'none';
+
+    // Reset submit buttons
+    submitBtnTextEl.textContent = 'Nộp bài';
+    btnSubmitTop.disabled = false;
+    btnSubmitSidebar.style.display = 'flex';
+    btnSubmitMobile.style.display = 'flex';
+
+    // Reset legend
+    navLegendEl.innerHTML = `
+      <div class="legend-item"><span class="legend-dot dot-unanswered"></span> Chưa làm</div>
+      <div class="legend-item"><span class="legend-dot dot-answered"></span> Đã chọn</div>
+      <div class="legend-item"><span class="legend-dot dot-flagged"></span> Đánh dấu</div>
+    `;
+
+    // Re-render
+    renderQuestions();
+    renderMatrix();
+    updateProgress();
+    startTimer();
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  /* ==========================================================================
+     Event Listeners
+     ========================================================================== */
+  function bindEvents() {
+    // Submit triggers
+    btnSubmitTop.addEventListener('click', promptSubmitModal);
+    btnSubmitSidebar.addEventListener('click', promptSubmitModal);
+    btnSubmitMobile.addEventListener('click', promptSubmitModal);
+
+    btnCancelSubmit.addEventListener('click', () => {
+      modalConfirmSubmit.classList.remove('open');
+    });
+
+    btnConfirmSubmit.addEventListener('click', () => {
+      submitExam(false);
+    });
+
+    btnCloseTimeOutModal.addEventListener('click', () => {
+      modalTimeOut.classList.remove('open');
+      resultsCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    // Mobile Drawer Toggle
+    btnToggleMobilePalette.addEventListener('click', () => {
+      sidebarPanel.classList.toggle('mobile-drawer-open');
+    });
+
+    // Filter Buttons
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        setReviewFilter(btn.dataset.filter);
+      });
+    });
+
+    // Retake button
+    btnRetake.addEventListener('click', retakeExam);
+
+    // Print button
+    btnPrintResults.addEventListener('click', () => {
+      window.print();
+    });
+
+    // Back to top button
+    const btnBackToTop = document.getElementById('btnBackToTop');
+    if (btnBackToTop) {
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 400) {
+          btnBackToTop.classList.add('visible');
+        } else {
+          btnBackToTop.classList.remove('visible');
+        }
+      });
+      btnBackToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+
+    // Close modals on outside click
+    [modalConfirmSubmit, modalTimeOut].forEach(modal => {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          modal.classList.remove('open');
+        }
+      });
+    });
+  }
+
+  // Start app on DOM load
+  document.addEventListener('DOMContentLoaded', init);
+
+})();
+
+  </script>
 </body>
 </html>
